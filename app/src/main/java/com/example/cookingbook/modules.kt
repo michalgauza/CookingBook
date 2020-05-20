@@ -1,11 +1,12 @@
 package com.example.cookingbook
 
+import com.example.cookingbook.network.RecipesApi
+import com.example.cookingbook.network.RecipesRepo
 import okhttp3.OkHttpClient
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 
 const val BASE_URL = "https://api.spoonacular.com/recipes/"
 
@@ -26,9 +27,11 @@ fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
     Retrofit.Builder()
         .baseUrl(BASE_URL)
         .client(okHttpClient)
-        .addConverterFactory(ScalarsConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-fun provideRestApi(retrofit: Retrofit): RecipesApi = retrofit.create(RecipesApi::class.java)
+fun provideRestApi(retrofit: Retrofit): RecipesApi = retrofit.create(
+    RecipesApi::class.java)
 
-fun provideRecipesRepo(api: RecipesApi): RecipesRepo = RecipesRepo(api)
+fun provideRecipesRepo(api: RecipesApi): RecipesRepo =
+    RecipesRepo(api)

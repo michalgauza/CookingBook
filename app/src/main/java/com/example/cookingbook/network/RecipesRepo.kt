@@ -9,9 +9,19 @@ class RecipesRepo(private val api: RecipesApi) {
     suspend fun fetchRandomRecipes(
         recipesQuantity: Int = 1,
         apiKey: String = API_KEY
-    ): ResultWrapper<RecipesApiResponse> {
-        return safeCall { api.fetchRandomRecipes(recipesQuantity, apiKey) }
-    }
+    ): ResultWrapper<RecipesApiResponse> =
+        safeCall { api.fetchRandomRecipes(recipesQuantity, apiKey) }
+
+
+    suspend fun searchRecipes(
+        cuisine: String = "",
+        diet: String = "",
+        intolerances: String = "",
+        offset: Int,
+        number: Int = 10,
+        apiKey: String = API_KEY
+    ): ResultWrapper<SearchRecipeApiResponse> =
+        safeCall { api.searchRecipes(cuisine, diet, intolerances, offset, number, apiKey) }
 }
 
 suspend fun <T> safeCall(apiCall: suspend () -> T): ResultWrapper<T> {

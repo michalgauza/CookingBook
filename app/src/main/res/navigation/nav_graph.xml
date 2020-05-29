@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/allRecipesFragment"
-        android:name="com.example.cookingbook.AllRecipesFragment"
+        android:name="com.example.cookingbook.allRecipesFragment.AllRecipesFragment"
         android:label="all_recpies_fragment"
         tools:layout="@layout/all_recpies_fragment" />
 </navigation>

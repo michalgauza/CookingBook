@@ -1,4 +1,4 @@
-package com.example.cookingbook
+package com.example.cookingbook.network
 
 data class RecipeModel(
     val id: Int,
@@ -6,7 +6,7 @@ data class RecipeModel(
     val vegan: Boolean,
     val glutenFree: Boolean,
     val readyInMinutes: Int,
-    val image: String,
+    var image: String,
     val summary: String,
     val instruction: String
 )

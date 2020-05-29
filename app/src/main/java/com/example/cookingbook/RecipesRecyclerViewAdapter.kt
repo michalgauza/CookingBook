@@ -2,11 +2,11 @@ package com.example.cookingbook
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cookingbook.databinding.RecipeCardBinding
+import com.example.cookingbook.network.RecipeModel
 
 val RECIPES_DIFF_CALLBACK = object : DiffUtil.ItemCallback<RecipeModel>() {
 
@@ -27,11 +27,16 @@ class RecipesRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     private val recipesDiffer = AsyncListDiffer(this, RECIPES_DIFF_CALLBACK)
 
+    var longClickCallback: ((Int) -> Unit)? = null
+
     override fun getItemCount(): Int = recipesDiffer.currentList.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is RecipesViewHolder -> holder.bind(recipesDiffer.currentList[position])
+            is RecipesViewHolder -> holder.bind(
+                recipesDiffer.currentList[position],
+                longClickCallback
+            )
         }
     }
 
@@ -42,8 +47,15 @@ class RecipesRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
     class RecipesViewHolder(private val binding: RecipeCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(recipe: RecipeModel) {
+        fun bind(
+            recipe: RecipeModel,
+            longClickCallback: ((Int) -> Unit)?
+        ) {
             binding.recipe = recipe
+//            binding.recipeCardCardView.setOnLongClickListener {
+//                longClickCallback?.invoke(recipe.id)
+//                return@setOnLongClickListener true
+//            }
         }
     }
 }

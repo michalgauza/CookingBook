@@ -1,5 +1,6 @@
-package com.example.cookingbook
+package com.example.cookingbook.di
 
+import com.example.cookingbook.allRecipesFragment.AllRecipesViewModel
 import com.example.cookingbook.network.RecipesApi
 import com.example.cookingbook.network.RecipesRepo
 import okhttp3.OkHttpClient
@@ -11,7 +12,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 const val BASE_URL = "https://api.spoonacular.com/recipes/"
 
 val viewModelsModule = module {
-    viewModel { AllRecipesViewModel(get()) }
+    viewModel {
+        AllRecipesViewModel(
+            get()
+        )
+    }
 }
 
 val netModules = module {

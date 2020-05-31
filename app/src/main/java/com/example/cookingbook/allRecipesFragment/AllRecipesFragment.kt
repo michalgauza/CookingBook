@@ -7,11 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.cookingbook.R
-import com.example.cookingbook.RecipesRecyclerViewAdapter
+import com.example.cookingbook.adapters.RecipesRecyclerViewAdapter
 import com.example.cookingbook.network.RecipesApiResponse
 import com.example.cookingbook.network.SearchRecipeApiResponse
 import kotlinx.android.synthetic.main.all_recpies_fragment.*
@@ -60,6 +57,6 @@ class AllRecipesFragment : Fragment() {
         }
         //todo data binding
         all_recipes_fragment_recycler_view.adapter = recyclerViewAdapter
-        all_recipes_fragment_recycler_view.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        all_recipes_fragment_recycler_view.layoutManager = GridLayoutManager(context, 2)
     }
 }

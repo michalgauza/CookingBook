@@ -46,6 +46,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation "androidx.drawerlayout:drawerlayout:1.0.0"
+
 
     // Koin
     implementation "org.koin:koin-core:2.1.5"
@@ -70,13 +72,13 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
-    //recyclerview
+    // recyclerview
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc01"
 
-    //cardview
+    // cardview
     implementation "androidx.cardview:cardview:1.0.0"
 
-    //room
+    // room
     implementation 'androidx.room:room-runtime:2.2.5'
     kapt 'androidx.room:room-compiler:2.2.5'
     implementation 'androidx.room:room-ktx:2.2.5'
@@ -95,7 +97,11 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.2.2"
 
 
-    //glide
+    // glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // paging library
+    implementation 'android.arch.paging:runtime:1.0.1'
+
 }

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cookingbook.databinding.RecipeCardBinding
-import com.example.cookingbook.network.RecipeModel
+import com.example.cookingbook.models.RecipeModel
 import com.example.cookingbook.utils.RECIPES_DIFF_CALLBACK
 
 class RecipesRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

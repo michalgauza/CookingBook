@@ -1,4 +1,4 @@
-package com.example.cookingbook.network
+package com.example.cookingbook.models
 
 data class RecipeModel(
     val id: Int,

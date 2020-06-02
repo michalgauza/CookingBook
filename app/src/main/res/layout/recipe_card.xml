@@ -6,7 +6,7 @@
 
         <variable
             name="recipe"
-            type="com.example.cookingbook.network.RecipeModel" />
+            type="com.example.cookingbook.models.RecipeModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

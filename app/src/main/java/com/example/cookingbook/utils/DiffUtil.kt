@@ -1,7 +1,7 @@
 package com.example.cookingbook.utils
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.cookingbook.network.RecipeModel
+import com.example.cookingbook.models.RecipeModel
 
 val RECIPES_DIFF_CALLBACK = object : DiffUtil.ItemCallback<RecipeModel>() {
 
